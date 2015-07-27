@@ -14,7 +14,7 @@ def loginView(request):
 	return render(request,'githubAuth/login.html')
 def githubCallbackView(request):
 	code = request.GET.get('code')
-	url ="https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s"%(settings.SOCIAL_AUTH_GITHUB_KEY,settings.SOCIAL_AUTH_GITHUB_SECRET,code);
+	url ="https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s"%(settings.SOCIAL_AUTH_GITHUB_KEY,settings.SOCIAL_AUTH_GITHUB_SECRET,code)
 	req = urllib2.urlopen(url)
 	html = str(req.read())
 	printLog(html)
